@@ -1,0 +1,36 @@
+<div class="text-center center">
+  <main class="form-sign_up w-50 m-auto">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%# <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
+      <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-floating">
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class: 'form-control', id: "floatingInput", placeholder: "first name" %>
+        <%= f.label :first_name, for: "floatingInput" %><br />
+      </div>
+      <div class="form-floating">
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class: 'form-control', id: "floatingInput", placeholder: "last name" %>
+        <%= f.label :last_name, for: "floatingInput" %><br />
+      </div>
+      <div class="form-floating">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', id: "floatingInput", placeholder: "name@example.com" %>
+        <%= f.label :email, for: "floatingInput" %><br />
+      </div>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <div class="form-floating">
+        <%= f.password_field :password, autocomplete: "new-password",  class:"form-control", id: "floatingPassword", placeholder: "Password" %>
+        <%= f.label :password,  for: "floatingPassword" %><br />
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id: "floatingPassword" %>
+        <%= f.label :password_confirmation, for: "floatingPassword" %><br />
+      </div>
+      <div class="form-floating">
+        <%= f.submit "Sign up", class: "w-100 btn btn-lg btn-primary", type: "submit" %>
+      </div>
+    <% end %>
+  </main>
+  <%= render "devise/shared/links" %>
+</div>
